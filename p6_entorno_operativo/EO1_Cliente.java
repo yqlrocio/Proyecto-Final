@@ -9,7 +9,7 @@ package p6_entorno_operativo;
 	    private String direccion;
 
 	    // Constructor
-	    public EO1_Cliente(int idCliente, String nombre, String telefono, String direccion) {
+	    public EO1_Cliente(int idCliente, String nombreCliente, String telefono, String direccion) {
 	        this.idCliente = idCliente;
 	        this.nombreCliente = nombreCliente;
 	        this.telefono = telefono;
