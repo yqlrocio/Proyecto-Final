@@ -1,5 +1,8 @@
 package p5_interfaces;
 
-public class PedidosPreparable {
-
+/**
+ * Interfaz específica para la elaboración de pedidos completos en el sistema.
+ */
+public interface PedidosPreparable {
+    void elaborar();
 }

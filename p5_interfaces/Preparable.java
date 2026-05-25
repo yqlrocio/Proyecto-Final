@@ -1,7 +1,8 @@
 package p5_interfaces;
 
-public class Preparable {
-
-	
-
+/**
+ * Interfaz general para elementos que requieren preparación.
+ */
+public interface Preparable {
+    void preparar();
 }

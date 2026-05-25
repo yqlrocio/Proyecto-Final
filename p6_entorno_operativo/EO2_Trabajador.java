@@ -1,52 +1,85 @@
 package p6_entorno_operativo;
 
 public class EO2_Trabajador {
-    private int idTrabajador;
-    private String nombreTrabajador;
-    private String rol;
+	/**
+	 * Representa a un empleado del restaurante.
+	 * Almacena sus datos identificativos y gestiona las acciones operativas
+	 * asociadas al ciclo de vida de un pedido (gestión, preparación y entrega).
+	 */
+	public class Trabajador {
+	    
+	    private int idTrabajador;
+	    private String nombreTrabajador;
+	    private Rol rol;
 
-    // Roles permitidos
-    public static final String COCINERO_WOK = "cocinero en wok";
-    public static final String COCINERO_SUSHI = "cocinero en sushi";
-    public static final String CAMARERO = "camarero";
-    public static final String REPARTIDOR = "repartidor";
+	    /**
+	     * Constructor completo para registrar un nuevo Trabajador.
+	     * * @param idTrabajador     El identificador único.
+	     * @param nombreTrabajador El nombre del empleado.
+	     * @param rol              El rol asignado (Cocinero, Camarero, etc.).
+	     */
+	    public Trabajador(int idTrabajador, String nombreTrabajador, Rol rol) {
+	        this.idTrabajador = idTrabajador;
+	        this.nombreTrabajador = nombreTrabajador;
+	        this.rol = rol;
+	    }
 
-    public EO2_Trabajador(int idTrabajador, String nombre, String rol) {
-        this.idTrabajador = idTrabajador;
-        this.nombre = nombre;
-        this.rol = rol;
-    }
+	    /**
+	     * Gestiona el estado administrativo de un pedido (recepción o modificaciones).
+	     */
+	    public void gestionarPedido() {
+	        System.out.println("El trabajador " + nombreTrabajador + " (" + rol + ") está gestionando un pedido.");
+	    }
 
-    public void gestionarPedido() {
-        switch (this.rol) {
-            case CAMARERO -> System.out.println(nombre + " (Camarero) está tomandote nota.");
-            case REPARTIDOR -> System.out.println(nombre + " (Repartidor) organizará la ruta de entrega.");
-            default -> System.out.println(nombre + " está coordinando el pedido en cocina.");
-        }
-    }
+	    /**
+	     * Realiza la elaboración del pedido. 
+	     */
+	    public void prepararPedido() {
+	        System.out.println("El trabajador " + nombreTrabajador + " está preparando el pedido.");
+	    }
 
-    public void prepararPedido() {
-        if (this.rol.equals(COCINERO_WOK)) {
-            System.out.println(nombre + " está preparando tu comida china.");
-        } else if (this.rol.equals(COCINERO_SUSHI)) {
-            System.out.println(nombre + " está preparando tu sushi.");
-        } else {
-            System.out.println(nombre + " (Rol: " + rol + ") no prepara comida directamente.");
-        }
-    }
+	    /**
+	     * Finaliza el ciclo del pedido entregándolo al cliente (en mesa o a domicilio).
+	     */
+	    public void entregarPedido() {
+	        System.out.println("El trabajador " + nombreTrabajador + " está entregando el pedido.");
+	    }
 
-    public void entregarPedido() {
-        if (this.rol.equals(REPARTIDOR)) {
-            System.out.println(nombre + " ha salido en la moto a entregar.");
-        } else if (this.rol.equals(CAMARERO)) {
-            System.out.println(nombre + " lleva los platos a la mesa.");
-        } else {
-            System.out.println(nombre + " está coordinando el pedido en barra.");
-        }
-    }
+	    /**
+	     * Obtiene el identificador del trabajador.
+	     * @return El ID del trabajador.
+	     */
+	    public int getIdTrabajador() { 
+	    	return idTrabajador; 
+	    	}
 
-    @Override
-    public String toString() {
-        return idTrabajador + "," + nombre + "," + rol;
-    }
-}
+	    /**
+	     * Obtiene el nombre del trabajador.
+	     * @return El nombre del trabajador.
+	     */
+	    public String getNombreTrabajador() { 
+	    	return nombreTrabajador; 
+	    	}
+
+	    /**
+	     * Obtiene el rol del trabajador.
+	     * @return El rol (Enum) del trabajador.
+	     */
+	    public Rol getRol() { 
+	    	return rol; 
+	    	}
+	    }
+
+	    /**
+	     * Devuelve una representación en cadena de texto con la información del trabajador.
+	     * * @return Una cadena con los atributos del trabajador.
+	     */
+	    @Override
+	    public String toString() {
+	        return "Trabajador{" +
+	                "idTrabajador=" + idTrabajador +
+	                ", nombreTrabajador='" + nombreTrabajador + '\'' +
+	                ", rol=" + rol +
+	                '}';
+	    }
+	}
